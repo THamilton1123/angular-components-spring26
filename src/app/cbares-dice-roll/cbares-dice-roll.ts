@@ -4,6 +4,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 
+type Roll = {
+  result: number,
+  rolled: boolean
+}
+
 @Component({
   selector: 'app-cbares-dice-roll',
   imports: [
@@ -17,12 +22,20 @@ import { FormsModule } from '@angular/forms';
 })
 export class CbaresDiceRoll {
   protected readonly numDice = signal(1);
-  protected readonly results : WritableSignal<{result: number, rolled: boolean}[]> = signal([
+  protected readonly results : WritableSignal<Roll[]> = signal([
     {
       result: 0,
       rolled: false
     }
   ]);
+
+  protected readonly updateDiceCount = (val : string) => {
+    this.results.update(prev => {
+      // REFERENCE: https://stackoverflow.com/questions/12503146/create-an-array-with-same-element-repeated-multiple-times
+      let diceArr : Roll[] = Array(Number(val)).fill({result: 0, rolled: true})
+      return diceArr;
+    })
+  }
 
   protected readonly rollDice = () => this.results.update(
     currentResults => currentResults.map(
