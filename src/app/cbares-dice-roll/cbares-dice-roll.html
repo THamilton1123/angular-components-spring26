@@ -5,6 +5,19 @@
         <mat-card-title>Roll the dice</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Select 1 - 6 dice</mat-label>
+                <input matInput
+                    type=number
+                    placeholder="Number of Dice"
+                    min="1"
+                    max="6"
+                    value="1"
+                >
+            </mat-form-field>
+        </form>
+        <br />
         <button
             matButton="outlined"
             (click)="rollDice()"
