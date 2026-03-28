@@ -12,14 +12,6 @@ const dummyToppingsFromApi = [
     price: 3.50,
   },
   {
-    name: 'Mushrooms',
-    price: 2.75,
-  },
-  {
-    name: 'Anchovies',
-    price: 4.25,
-  },
-  {
     name: 'Saussage',
     price: 4.25,
   },
