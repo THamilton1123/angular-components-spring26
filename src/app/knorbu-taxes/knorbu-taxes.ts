@@ -16,10 +16,14 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './knorbu-taxes.css',
 })
 export class KnorbuTaxes {
-    protected readonly inputNumber = signal(0)
-    protected readonly total = signal (0)
+  protected readonly inputNumber = signal(0)
+  protected readonly total = signal(0)
+  protected readonly tax = signal(0)
 
-    protected readonly updateNumber = (num: string) => this.inputNumber.set(Number(num))
+  protected readonly updateNumber = (num: string) => this.inputNumber.set(Number(num))
+  protected readonly calculate = () => {
+    this.tax.set(this.inputNumber() * 0.05);
+    this.total.set(this.inputNumber() + this.inputNumber() * 0.05);
 
-    protected readonly calculate = () => this.total.set(this.inputNumber() + this.inputNumber() * 0.05);
+  }
 }
