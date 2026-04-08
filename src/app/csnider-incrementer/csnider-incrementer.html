@@ -5,10 +5,10 @@
     <mat-card-content>
         <div id="controls">
             <input type="number" id="increment-by" (change)="setIncrement($event)" min="1" step="1" title="Increment By" value="{{increment()}}">
-            <button class="control-button" (click)="incrementCount($event)" id="add-button" title="Increment Count"><mat-icon>add</mat-icon></button>
-            <button class="control-button" (click)="decrementCount($event)" id="remove-button" title="Decrement Count"><mat-icon>remove</mat-icon></button>
+            <button class="control-button" (click)="incrementCount()" id="add-button" title="Increment Count"><mat-icon>add</mat-icon></button>
+            <button class="control-button" (click)="decrementCount()" id="remove-button" title="Decrement Count"><mat-icon>remove</mat-icon></button>
             <span id="current-count">Current Count: {{count()}}</span>
-            <button class="control-button" (click)="resetValues($event)" id="reset-button" title="Reset Count">Reset</button>
+            <button class="control-button" (click)="resetValues()" id="reset-button" title="Reset Count">Reset</button>
         </div>
     </mat-card-content>
 </mat-card>

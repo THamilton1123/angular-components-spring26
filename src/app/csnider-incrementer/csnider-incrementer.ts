@@ -11,22 +11,22 @@ import { throwError } from 'rxjs';
 })
 
 export class CsniderIncrementer {
-  count = signal(0);
-  increment = signal(1);
+  protected count = signal(0);
+  protected increment = signal(1);
 
-  setIncrement = (event:Event) => {
+  protected readonly setIncrement = (event: Event) => {
     this.increment.set(Number((event.target as HTMLInputElement).value));
   }
 
-  incrementCount = (event:Event) => {
+  protected readonly incrementCount = () => {
     this.count.update(value => value + this.increment())
   }
 
-  decrementCount = (event:Event) => {
+  protected readonly decrementCount = () => {
     this.count.update(value => value - this.increment())
   }
 
-  resetValues = (event:Event) => {
+  protected readonly resetValues = () => {
     this.count.set(0);
     this.increment.set(1);
   } 
